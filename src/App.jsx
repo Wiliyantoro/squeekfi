@@ -3,6 +3,8 @@ import { useContracts, useGlobalState, useAccount, usePipeline } from './hooks.j
 import Stake from './Stake.jsx'
 import Swap from './Swap.jsx'
 import Pools from './Pools.jsx'
+import StakeWrite from './StakeWrite.jsx'
+import Planner from './Planner.jsx'
 
 export default function App() {
   const [tab, setTab] = useState('stake')
@@ -31,6 +33,8 @@ export default function App() {
       </p>
       <div className="tabs">
         <button className={tab === 'stake' ? 'on' : ''} onClick={() => setTab('stake')}>Stake (on-chain)</button>
+        <button className={tab === 'write' ? 'on' : ''} onClick={() => setTab('write')}>Stake Actions ⚡</button>
+        <button className={tab === 'planner' ? 'on' : ''} onClick={() => setTab('planner')}>Planner 🧮</button>
         <button className={tab === 'swap' ? 'on' : ''} onClick={() => setTab('swap')}>Swap (paper)</button>
         <button className={tab === 'pools' ? 'on' : ''} onClick={() => setTab('pools')}>Pools (paper)</button>
       </div>
@@ -44,6 +48,8 @@ export default function App() {
       )}
       {tab === 'swap' && <Swap />}
       {tab === 'pools' && <Pools />}
+      {tab === 'write' && <StakeWrite />}
+      {tab === 'planner' && <Planner />}
 
       <footer>
         Kontrak resmi (Sepolia, release core-sepolia-20261103): Staking 0x50fd…11ca · Token 0xd78a…fa1e · NFT 0xc4c7…856b.
